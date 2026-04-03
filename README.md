@@ -1,33 +1,35 @@
-# 🛡️ ORDAKHAN - Mingghan Offensive Ecosystem
+﻿# 🛡️ ORDAKHAN - Mingghan Offensive Ecosystem
 
-> **Status:** 🟢 Infraestrutura Operacional (Horda 2.0)
-> **Operador:** saint (th1eros)
+> **Status:** 🟠 Infraestrutura em Fase de Consolidação  
+> **Operador:** saint (th1eros)  
 > **Arquitetura:** .NET 8 + C++ (Win32 Bridge) + PostgreSQL Interface
 
 ---
 
-## 🗺️ Roadmap de Desenvolvimento
+## 🗺️ Roadmap de Desenvolvimento (Horda 2.0)
 
-### [Phase 1] 🏗️ Foundation (CONCLUÍDO)
+### [Phase 1] 🏗️ Foundation (Concluído)
 - [x] Sanitização de ambiente local (Scorched Earth).
 - [x] Criação da Organização GitHub `Ordakhan`.
-- [x] Configuração de `.gitignore` (Proteção contra lixo do VS).
-- [x] Resgate de permissões NTFS e limpeza de Zombie Handles.
+- [x] Estrutura de pastas militar (Zunn, Arba, Mnemos).
 
-### [Phase 2] ⚔️ Core Engines (EM ANDAMENTO)
-- [x] Migração Python -> C# no **Zunn_Engine** (Evasão/Performance).
-- [x] Implementação de `VirtualAlloc` (Manipulação de Memória Win32).
-- [/] Orquestrador C# (Implementando ponte para C++).
-- [ ] Compilação Native AOT para binários indetectáveis.
+### [Phase 2] ⚔️ Core Engines (Em Andamento)
+- [x] Migração Python -> C# no **Zunn_Engine** (Performance/Evasão).
+- [/] Orquestrador C# (Implementando DllImport para C++).
+- [ ] Implementação de Native AOT para binários ofensivos.
 
-### [Phase 3] 🧠 Intelligence Integration (PRÓXIMO PASSO)
-- [x] Definição do Schema SQL para o **Mnemos Vault**.
-- [x] Criação do `DatabaseService.cs` (Driver Npgsql/Dapper).
-- [ ] Conexão segura com o ecossistema externo Mnemos.
+### [Phase 3] 🧠 Intelligence Integration (Próximo Passo)
+- [x] Definição do Schema de Dados para o **Mnemos Vault**.
+- [ ] Integração Npgsql (C# <-> Mnemos Remote Database).
+- [ ] Criptografia AES-256 para `binary_data` (Arsenal Tools).
+
+### [Phase 4] 🚀 Deployment & Pentest Tools
+- [ ] Automação de Scans via Zunn_Engine.
+- [ ] Logs de Exfiltração via Mnemos.
 
 ---
 
 ## 📂 Estrutura das Unidades
-- **Mingghan_Offensive/Zunn_Engine**: Motor de ataque em C# e C++.
-- **Mingghan_Defensive/Zunn_Guardian**: Defesa e monitoramento de integridade.
-- **Mnemios_Vault**: Contratos e conectores para a futura Inteligência de Dados.
+- **Mingghan_Offensive/Zunn_Engine**: Orquestrador C# e Motor C++.
+- **Mingghan_Defensive/Zunn_Guardian**: Monitor de Integridade e SIEM.
+- **Mnemios_Vault**: Contratos SQL para conexão com ecossistema de dados externo.

@@ -1,4 +1,3 @@
-// Arquivo: C:\th1eros\Ordakhan\Mingghan_Offensive\Zunn_Engine\Orchestrator.cs
 using System;
 using System.Runtime.InteropServices;
 
@@ -6,35 +5,49 @@ namespace Zunn_Engine
 {
     class Orchestrator
     {
-        // Importação da Kernel32.dll para alocação de memória (Essencial para Red Team)
+        // --- PONTE PARA O MOTOR C++ (Zunn_Core) ---
+        [DllImport("Zunn_Core.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void ExecuteHordaCommand();
+
+        // --- PONTE PARA O KERNEL WINDOWS (Memória) ---
         [DllImport("kernel32.dll", SetLastError = true, ExactSpelling = true)]
         static extern IntPtr VirtualAlloc(IntPtr lpAddress, uint dwSize, uint flAllocationType, uint flProtect);
 
-        // Constantes de proteção de memória
         const uint MEM_COMMIT = 0x1000;
         const uint PAGE_EXECUTE_READWRITE = 0x40;
 
         static void Main(string[] args)
         {
             Console.WriteLine("------------------------------------------");
-            Console.WriteLine("     ORDHAKAN - ZUNN ENGINE v2.0          ");
+            Console.WriteLine("     ORAKHAN - ZUNN ENGINE v0.1 ALPHA    ");
             Console.WriteLine("------------------------------------------");
 
-            Console.WriteLine("[*] STATUS: Orquestrador C# em execução.");
-
-            // Exemplo de alocação de buffer para o futuro motor C++
+            // 1. Teste de Alocação (Infraestrutura)
             IntPtr buffer = VirtualAlloc(IntPtr.Zero, 1024, MEM_COMMIT, PAGE_EXECUTE_READWRITE);
 
             if (buffer != IntPtr.Zero)
             {
-                Console.WriteLine($"[+] Memória Ofensiva Alocada em: 0x{buffer.ToInt64():X}");
+                Console.WriteLine($"[+] Espaço de Manobra: 0x{buffer.ToInt64():X}");
+
+                // 2. Chamada do Motor de Ataque (Lógica Real)
+                try
+                {
+                    Console.WriteLine("[*] Acionando Zunn_Core...");
+                    ExecuteHordaCommand();
+                    Console.WriteLine("[+] Ciclo de execução concluído com sucesso.");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"[!] Erro ao acionar o Core: {ex.Message}");
+                }
             }
             else
             {
-                Console.WriteLine("[!] Falha Crítica: Não foi possível alocar espaço de manobra.");
+                Console.WriteLine("[!] FALHA DE SEGURANÇA: Memória negada pelo Kernel.");
             }
 
-            Console.WriteLine("[*] ALVO: Aguardando conexão com Mnemos Vault...");
+            Console.WriteLine("[*] STATUS: Aguardando sinal do Mnemos Vault...");
+            Console.WriteLine("------------------------------------------");
         }
     }
 }

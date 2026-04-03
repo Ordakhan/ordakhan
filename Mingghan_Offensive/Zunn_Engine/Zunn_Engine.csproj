@@ -13,5 +13,10 @@
 		<PackageReference Include="Npgsql" Version="8.0.2" />
 		<PackageReference Include="Dapper" Version="2.1.35" />
 	</ItemGroup>
+	<ItemGroup>
+		<None Update="..\..\Zunn_Core.dll">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
 
 </Project>
